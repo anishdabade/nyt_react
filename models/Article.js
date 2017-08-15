@@ -12,7 +12,8 @@ var ArticleSchema = new Schema({
   },
   // link is a required string
   link: {
-    type: String
+    type: String,
+    required: true
   },
   published: {
     type: Date,
