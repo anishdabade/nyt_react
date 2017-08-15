@@ -7,7 +7,9 @@ var Form = React.createClass({
   // Here we set a generic state associated with the text being searched for
   getInitialState: function() {
     return { 
-      term: ""
+      title: "",
+      start: "",
+      end: ""
     };
   },
 
@@ -25,7 +27,7 @@ var Form = React.createClass({
     event.preventDefault();
 
     // Set the parent to have the search term
-    this.props.setTerm(this.state.term);
+    this.props.setTerm(this.state.term); //where is setTerm
     this.setState({ term: "" });
   },
   // Here we describe this component's render method
@@ -48,10 +50,29 @@ var Form = React.createClass({
                 Also note how each has an onChange event associated with our handleChange event.
               */}
               <input
-                value={this.state.term}
+                // fix below code
+                value={this.state.title}
                 type="text"
                 className="form-control text-center"
-                id="term"
+                id="title"
+                onChange={this.handleChange}
+                required
+              />
+              <input
+                // fix below code
+                value={this.state.start}
+                type="text"
+                className="form-control text-center"
+                id="start"
+                onChange={this.handleChange}
+                required
+              />
+              <input
+                // fix below code
+                value={this.state.end}
+                type="text"
+                className="form-control text-center"
+                id="end"
                 onChange={this.handleChange}
                 required
               />
