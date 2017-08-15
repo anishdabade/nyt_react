@@ -2,7 +2,7 @@
   "name": "nyt_react",
   "version": "1.0.0",
   "description": "Search and save a article on New York Times using React.js",
-  "main": "server.js",
+  "main": "public/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

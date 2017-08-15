@@ -2,7 +2,7 @@ var React = require("react");
 
 var Form = require("./children/Form");
 var Results = require("./children/Results");
-var History = require("./children/History");
+var Saved = require("./children/Saved");
 
 var helpers = require("./utils/helpers");
 
