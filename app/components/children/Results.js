@@ -11,10 +11,17 @@ var Results = React.createClass({
           <h3 className="panel-title text-center">Results</h3>
         </div>
         <div className="panel-body text-center">
-          <h1>Title:</h1>
-          <p>{this.props.title}</p>
-          <h1>Link:</h1>
-          <p>{this.props.link}</p>
+          {console.log(this.props)}
+          {this.props.newsArticles.map(function(search, i) {
+            return (
+              <div>
+                <p>{search.headline.main}</p>
+                <p>{search.snippet}</p>
+                <p>{search.web_url}</p>
+
+              </div>
+            );
+          })}
         </div>
       </div>
     );

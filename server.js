@@ -21,6 +21,10 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
 
+// Main "/" Route. This will redirect the user to our rendered React application
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
 // -------------------------------------------------
 
 // MongoDB Configuration configuration (Change this URL to your own DB)

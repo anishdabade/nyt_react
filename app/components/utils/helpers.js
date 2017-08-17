@@ -2,7 +2,8 @@
 var axios = require("axios");
 
 //NYT API Key & search query
-var nytKey = '9A0DE5D8173FEF34BC4052DFB166838F669EDE';
+var nytKey = 'b9f91d369ff59547cd47b931d8cbc56b:0:74623931';
+
 var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
   nytKey + "&q=";
 
@@ -17,19 +18,24 @@ var helper = {
 		// If the user provides a startYear -- the startYear will be included in the queryURL
 		if (parseInt(stYear)) {
 		  queryURL = queryURL + "&begin_date=" +stYear+ "0101";
+		  //queryURL = queryURL + "&begin_date=20160101";
 		}
-		// If the user provides a startYear -- the endYear will be included in the queryURL
+		// If the user provides a endYear -- the endYear will be included in the queryURL
 		if (parseInt(endYear)) {
-		  queryURL = queryURL + "&end_date=" +endYear+ "0101";
+		  queryURL = queryURL + "&end_date="+endYear+ "0101";
 		}
+		
+		return axios.get(queryURL).then(function(nytData) {
+			var news = nytData['data']['response']['docs'];
 
-		return axios.get(queryURL).then(function(response) {
-			// If get get a result, return that result's formatted address property
-			if (response.data.results[0]) {
-			  return response.data.results;
+			if(news.length >0){
+			  return news;
 			}
-			// If we don't get any results, return an empty string
-			return "";
+			else{
+				// If we don't get any results, return an empty string
+				return "";
+			}
+
 		});
 	}
 
