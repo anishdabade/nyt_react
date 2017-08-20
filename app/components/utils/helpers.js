@@ -46,6 +46,21 @@ var helper = {
 			console.log('axios result',res.data._id);
 			return res.data._id;
 		});
+	},
+
+	getsavedArticles:function(){
+		return axios.get("/api/saved")
+		.then(function(res){
+			return res;
+		});
+	},
+
+	deleteSelectedArticle:function(id){
+		//api call for delete
+		return axios.delete("/api/"+id)
+		.then(function(res){
+			return res;
+		});
 	}
 
 };
