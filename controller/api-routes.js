@@ -28,7 +28,13 @@ router.post("/api/saved", function(req, res) {
 	console.log(req.body.link);
 	console.log(req.body.published);
 
-	var newArticle = new Article(req.body);
+	//var newArticle = new Article(req.body);
+	 var newArticle = new Article({
+    	title: req.body.title,
+    	published: req.body.published,
+    	link: req.body.link
+  	});
+
 	newArticle.save(function(error, doc) {
 	    console.log('Doc id  --',doc);
 	  if(error){
