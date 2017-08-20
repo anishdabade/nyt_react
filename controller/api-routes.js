@@ -42,7 +42,7 @@ router.post("/api/saved", function(req, res) {
 
 //Delete selected Article
 router.delete("/api/:id", function(req, res) {
-
+	console.log('Delete Rec ID==>',req.params.id)
 	Article.remove({"_id":req.params.id}, function(err,removed) {
 		if(err){
 			res.send(err);
